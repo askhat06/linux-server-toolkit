@@ -9,7 +9,7 @@ usage() {
 if [[ ${1:-} == --help ]]; then usage; exit 0; fi
 if (( $# > 2 )); then usage >&2; exit 2; fi
 target=${1:-/}
-threshold=${2:-80}
+threshold=${2:-70}
 if [[ ! $threshold =~ ^(0|[1-9][0-9]?|100)$ ]]; then
   echo 'Threshold must be an integer from 0 to 100.' >&2
   exit 2
