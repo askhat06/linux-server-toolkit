@@ -25,7 +25,7 @@ printf 'Disk used: %s%% | threshold: %s%%\n' "$used" "$threshold"
 printf 'Uptime: '
 uptime -p
 free -m
-if (( 10#$used > threshold )); then
+if (( 10#$used < threshold )); then
   echo 'WARNING: disk usage exceeds threshold.'
   exit 1
 fi
