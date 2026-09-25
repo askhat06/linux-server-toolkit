@@ -13,7 +13,12 @@ tar --version
 command -v df free uptime awk realpath mktemp gzip
 ```
 
-Clone the GitHub URL shown on this project's repository page once it has been published, then enter the resulting directory. The project requires no package installation or root permissions when the listed commands are already available.
+Clone the public repository and enter its directory. The project requires no package installation or root permissions when the listed commands are already available.
+
+```bash
+git clone https://github.com/askhat06/linux-server-toolkit.git
+cd linux-server-toolkit
+```
 
 ```bash
 bash tests/test-health.sh

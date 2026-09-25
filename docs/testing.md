@@ -9,7 +9,7 @@ bash tests/test-backup.sh
 git diff --check
 ```
 
-Health tests use a deterministic 85-percent disk fixture to verify warning boundaries and invalid input. A real WSL run checks integration with `df`, `free`, and `uptime`.
+Health tests use a deterministic 85-percent disk fixture to verify warning boundaries and invalid input. Twelve cases also cover failures of `df`, `free`, and `uptime`, and malformed disk output. A real WSL run checks integration with the actual system utilities.
 
 Backup tests create disposable fixtures under `/tmp`, archive and restore them, compare contents, check hidden files and symlinks, verify private Linux permissions and distinct archive names, reject invalid destinations, and simulate archiver failure. No personal files are used.
 

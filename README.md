@@ -30,7 +30,7 @@ bash tests/test-health.sh
 bash tests/test-backup.sh
 ```
 
-Health exits 0 for normal usage, 1 for a disk warning, and 2 for invalid input or a disk inspection failure. Backup prints the created archive path on success.
+Health exits 0 for normal usage, 1 for a disk warning, and 2 for invalid input or an inspection failure. Backup prints the created archive path on success.
 
 ## Guides
 
@@ -41,6 +41,7 @@ Health exits 0 for normal usage, 1 for a disk warning, and 2 for invalid input o
 - [Testing](docs/testing.md)
 - [Troubleshooting and repository investigation](docs/troubleshooting.md)
 - [Contribution and review process](CONTRIBUTING.md)
+- [Individual submission and self-review](docs/self-review.md)
 
 ## Branching strategy
 
