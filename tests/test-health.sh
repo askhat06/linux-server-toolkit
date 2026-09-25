@@ -30,4 +30,16 @@ expect_exit 2 bash "$root/scripts/health-check.sh" / 08
 expect_exit 2 bash "$root/scripts/health-check.sh" "$tmp/missing" 80
 expect_exit 2 bash "$root/scripts/health-check.sh" / 80 extra
 expect_exit 0 bash "$root/scripts/health-check.sh" --help
-echo 'PASS: 8 health-check cases (controlled disk fixture).'
+printf '#!/usr/bin/env bash\nexit 9\n' > "$tmp/bin/uptime"
+chmod +x "$tmp/bin/uptime"
+expect_exit 2 bash "$root/scripts/health-check.sh" / 100
+rm -- "$tmp/bin/uptime"
+printf '#!/usr/bin/env bash\nexit 9\n' > "$tmp/bin/free"
+chmod +x "$tmp/bin/free"
+expect_exit 2 bash "$root/scripts/health-check.sh" / 100
+rm -- "$tmp/bin/free"
+printf '#!/usr/bin/env bash\nexit 9\n' > "$tmp/bin/df"
+expect_exit 2 bash "$root/scripts/health-check.sh" / 100
+printf '#!/usr/bin/env bash\necho malformed\n' > "$tmp/bin/df"
+expect_exit 2 bash "$root/scripts/health-check.sh" / 100
+echo 'PASS: 12 health-check cases, including inspection failures.'

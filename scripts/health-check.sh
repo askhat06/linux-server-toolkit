@@ -21,10 +21,17 @@ if ! disk_report=$(LC_ALL=C df -P -- "$target"); then
 fi
 used=$(awk 'NR == 2 {gsub(/%/, "", $5); print $5}' <<< "$disk_report")
 if [[ ! $used =~ ^[0-9]+$ ]]; then echo 'Invalid disk report.' >&2; exit 2; fi
+if ! uptime_report=$(uptime -p); then
+  echo 'Cannot inspect uptime.' >&2
+  exit 2
+fi
+if ! memory_report=$(free -m); then
+  echo 'Cannot inspect memory.' >&2
+  exit 2
+fi
 printf 'Disk used: %s%% | threshold: %s%%\n' "$used" "$threshold"
-printf 'Uptime: '
-uptime -p
-free -m
+printf 'Uptime: %s\n' "$uptime_report"
+printf '%s\n' "$memory_report"
 if (( 10#$used > threshold )); then
   echo 'WARNING: disk usage exceeds threshold.'
   exit 1
