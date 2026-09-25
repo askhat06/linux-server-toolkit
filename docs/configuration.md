@@ -8,6 +8,6 @@ Author identity is configured locally for this repository. Check with `git confi
 
 ## Runtime
 
-Health check: first positional argument is the filesystem path (default `/`); second is an integer disk threshold from 0 to 100 (default 80). Usage strictly greater than the threshold returns a warning. Leading zeroes such as `08` are rejected.
+Health check: first positional argument is the filesystem path (default `/`); second is an integer disk threshold from 0 to 100 (default 75). Usage strictly greater than the threshold returns a warning. Leading zeroes such as `08` are rejected.
 
 Backup: first argument is an existing source directory; second is the backup destination. Use quotes around paths with spaces. Configuration is passed as arguments, not executed from an external config file. Archive permissions depend on the filesystem; Ubuntu's native filesystem supports mode 600.
