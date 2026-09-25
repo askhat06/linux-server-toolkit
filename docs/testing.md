@@ -3,7 +3,7 @@
 From the repository root after the feature branches are integrated:
 
 ```bash
-bash -n scripts/health-check.sh scripts/backup.sh tests/test-health.sh tests/test-backup.sh
+for file in scripts/*.sh tests/*.sh; do bash -n "$file"; done
 bash tests/test-health.sh
 bash tests/test-backup.sh
 git diff --check
