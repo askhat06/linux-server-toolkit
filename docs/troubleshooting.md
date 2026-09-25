@@ -16,3 +16,5 @@
 Start with `git status`, `git log --oneline --graph --all`, and `git diff`. Use `git log -p -- path`, `git show COMMIT`, and `git blame path` to connect the failing line with its change. For a larger history use `git bisect` with a deterministic test.
 
 After identifying a bad commit, `git revert COMMIT` records an inverse change as a new commit. Review and retest the result. Later unrelated development remains in history. If the revert conflicts, resolve the intended final content and continue with `git revert --continue`.
+
+Before troubleshooting a backup, confirm that the destination has enough free space with `df -h`.
